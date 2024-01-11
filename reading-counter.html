@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>counter</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lemon&display=swap" rel="stylesheet">
+
+    <style>
+        .box-container {
+            font-family: 'Lemon', serif;
+            max-width: 40%;
+            padding: 5px 5px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            border: 2px solid #b26a49;
+            border-radius: 5px;
+        }
+
+        h1 {
+            color: #b26a49;
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: space-between;
+            flex-direction: row;
+        }
+
+        .bt-minus {
+            margin: 10px 30px 10px 0px;
+            border: solid 1px #b26a49;
+            border-radius: 20px;
+            color: #b26a49;
+            background-color: white;
+            transition: background-color 0.5s ease, color 0.5s ease, transform 0.5s ease;
+        }
+
+        .counter-text {
+            font-size: 20px;
+            color: #b26a49;
+        }
+
+        .bt-add {
+            margin: 10px 10px 10px 30px;
+            border: solid 1px #b26a49;
+            border-radius: 20px;
+            color: #b26a49;
+            background-color: white;
+            transition: background-color 0.5s ease, color 0.5s ease, transform 0.5s ease;
+        }
+
+        .bt-minus:hover,.bt-add:hover {
+            background-color: #cd8061;
+            color: white;
+            transform: scale(1.2);
+        }
+    </style>
+</head>
+<body>
+    <div class="box-container">
+        <h1>Reading Counter</h1>
+        <div class="buttons">
+            <button class="bt-minus">
+                <svg xmlns="http://www.w3.org/2000/svg" height="16" width="10" viewBox="0 0 320 512">
+                    <path fill="#b26a49" d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l192 192c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256 246.6 86.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-192 192z"/>
+                </svg>
+            </button>
+            <div class="counter-container">
+                <p class="counter-text">0</p>
+            </div>
+            <button class="bt-add">
+                <svg xmlns="http://www.w3.org/2000/svg" height="16" width="10" viewBox="0 0 320 512">
+                    <path fill="#b26a49" d="M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z"/>
+                </svg>
+            </button>
+        </div>
+    </div>
+<script>
+
+    let add = document.querySelector(".bt-add");
+    let minus = document.querySelector(".bt-minus");
+    let counter = document.querySelector(".counter-text");
+
+    add.addEventListener('click', addCounter);
+    minus.addEventListener('click', minusCounter);
+
+    function addCounter() {
+        counter_num = counter.innerHTML
+        counter.innerHTML = parseInt(counter_num) + 1;
+    }
+
+    function minusCounter() {
+        counter_num = counter.innerHTML
+        if (counter_num > 0 ) {
+            counter.innerHTML = parseInt(counter_num) - 1;
+        }
+    }
+</script>
+</body>
+</html>
