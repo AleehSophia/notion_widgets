@@ -62,7 +62,7 @@
 </head>
 <body>
     <div class="box-container">
-        <h1>Reading Counter</h1>
+        <h1>Counter</h1>
         <div class="buttons">
             <button id="bt-minus">
                 <svg xmlns="http://www.w3.org/2000/svg" height="16" width="10" viewBox="0 0 320 512">
@@ -85,9 +85,6 @@
     let minus = document.querySelector("#bt-minus");
     let counter = document.querySelector(".counter-text");
 
-    add.addEventListener('click', addCounter);
-    minus.addEventListener('click', minusCounter);
-
     let counter_num = window.localStorage.getItem('counter_num') || 0;
     counter.innerHTML = counter_num;
 
@@ -104,6 +101,21 @@
             window.localStorage.setItem('counter_num', counter_num);
         }
     }
+
+    let intervalId = 0;
+    minus.addEventListener('mousedown', () => {
+        intervalId = setInterval(() => {
+            minusCounter();
+        }, 100)
+    });
+    minus.addEventListener('mouseup', () => clearInterval(intervalId));
+
+    add.addEventListener('mousedown', () => {
+        intervalId = setInterval(() => {
+            addCounter();
+        }, 100)
+    });
+    add.addEventListener('mouseup', () => clearInterval(intervalId));
 </script>
 </body>
 </html>
