@@ -118,14 +118,13 @@
             minusCounter();
         }, 100)
     });
-    minus.addEventListener('mouseup', () => clearInterval(intervalId));
 
     add.addEventListener('mousedown', () => {
         intervalId = setInterval(() => {
             addCounter();
         }, 100)
     });
-    add.addEventListener('mouseup', () => clearInterval(intervalId));
+    document.addEventListener('mouseup', () => clearInterval(intervalId));
 </script>
 </body>
 </html>
