@@ -119,12 +119,27 @@
         }, 100)
     });
 
+    minus.addEventListener('touchstart', (e) => {
+        e.preventDefault();
+        intervalId = setInterval(() => {
+            minusCounter();
+        }, 100)
+    });
+
     add.addEventListener('mousedown', () => {
         intervalId = setInterval(() => {
             addCounter();
         }, 100)
     });
+
+    add.addEventListener('touchstart', (e) => {
+        e.preventDefault();
+        intervalId = setInterval(() => {
+            addCounter();
+        }, 100)
+    });
     document.addEventListener('mouseup', () => clearInterval(intervalId));
+    document.addEventListener('touchend', () => clearInterval(intervalId));
 </script>
 </body>
 </html>
